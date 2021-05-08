@@ -1,7 +1,7 @@
 import React from "react"
 import "./SearchItem.css"
 
-const NomineeItem = ({ movie, onNominate }) => {
+const NomineeItem = ({ movie, onUnNominate }) => {
 	return (
 		<div className="video-item item">
 			<img className="ui tiny image" src={movie.Poster} alt="movie-poster" />
@@ -12,11 +12,10 @@ const NomineeItem = ({ movie, onNominate }) => {
 			</div>
 			<div className="right floated">
 				<button
-					onClick={() => onNominate(movie)}
-					// disabled={}
+					onClick={() => onUnNominate(movie)}
 					className="ui primary button"
 				>
-					Un-nominate
+					Remove
 				</button>
 			</div>
 		</div>

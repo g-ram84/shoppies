@@ -3,9 +3,11 @@ import "./SearchItem.css"
 
 const SearchItem = ({ movie, onNominate, nominatedMovie }) => {
 	const boolCheck = (movie) => {
+		if (nominatedMovie.length >= 5) {
+			return true
+		}
+
 		return nominatedMovie.some((isNominated) => {
-			console.log("isNominated", isNominated)
-			console.log("movie", movie)
 			return isNominated.imdbID === movie.imdbID
 		})
 	}

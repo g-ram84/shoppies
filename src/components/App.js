@@ -22,6 +22,12 @@ export default function App() {
 		setNominatedMovie([...nominatedMovie, clickedMovie])
 	}
 
+	const onUnNominate = (clickedMovie) => {
+		setNominatedMovie(
+			nominatedMovie.filter((list) => list.Title !== clickedMovie.Title)
+		)
+	}
+
 	return (
 		<div className="ui container">
 			<h1>The Shoppies!</h1>
@@ -38,6 +44,7 @@ export default function App() {
 					<NomineeList
 						nominatedMovie={nominatedMovie}
 						onNominate={onNominate}
+						onUnNominate={onUnNominate}
 					/>
 				</div>
 			</div>
