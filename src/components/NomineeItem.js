@@ -1,15 +1,7 @@
 import React from "react"
 import "./SearchItem.css"
 
-const SearchItem = ({ movie, onNominate, nominatedMovie }) => {
-	const boolCheck = (movie) => {
-		return nominatedMovie.some((isNominated) => {
-			console.log("isNominated", isNominated)
-			console.log("movie", movie)
-			return isNominated.imdbID === movie.imdbID
-		})
-	}
-
+const NomineeItem = ({ movie, onNominate }) => {
 	return (
 		<div className="video-item item">
 			<img className="ui tiny image" src={movie.Poster} alt="movie-poster" />
@@ -21,14 +13,14 @@ const SearchItem = ({ movie, onNominate, nominatedMovie }) => {
 			<div className="right floated">
 				<button
 					onClick={() => onNominate(movie)}
-					disabled={boolCheck(movie)}
+					// disabled={}
 					className="ui primary button"
 				>
-					Nominate
+					Un-nominate
 				</button>
 			</div>
 		</div>
 	)
 }
 
-export default SearchItem
+export default NomineeItem

@@ -2,9 +2,12 @@ import React, { useState } from "react"
 import SearchBar from "./SearchBar"
 import SearchList from "./SearchList"
 import omdb from "../apis/omdb"
+import NomineeList from "./NomineeList"
+import "./SearchItem.css"
 
 export default function App() {
 	const [movies, setMovies] = useState([])
+	const [nominatedMovie, setNominatedMovie] = useState([])
 
 	const onTermSubmit = async (term) => {
 		const response = await omdb.get("/search", {
@@ -14,12 +17,30 @@ export default function App() {
 		})
 		setMovies(response.data.Search)
 	}
-	console.log(movies)
+
+	const onNominate = (clickedMovie) => {
+		setNominatedMovie([...nominatedMovie, clickedMovie])
+	}
 
 	return (
 		<div className="ui container">
-			<SearchBar onTermSubmit={onTermSubmit} />
-			<SearchList movies={movies} />
+			<h1>The Shoppies!</h1>
+			<SearchBar onTermSubmit={onTermSubmit} movies={movies} />
+			<div className="ui two column double stackable grid container">
+				<div className="column">
+					<SearchList
+						onNominate={onNominate}
+						movies={movies}
+						nominatedMovie={nominatedMovie}
+					/>
+				</div>
+				<div className="column">
+					<NomineeList
+						nominatedMovie={nominatedMovie}
+						onNominate={onNominate}
+					/>
+				</div>
+			</div>
 		</div>
 	)
 }
