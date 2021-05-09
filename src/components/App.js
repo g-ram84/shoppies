@@ -9,18 +9,14 @@ import "./SearchItem.css"
 export default function App() {
 	const [movies, setMovies] = useState([])
 	const [nominatedMovie, setNominatedMovie] = useState([])
-	const [entry, setEntry] = useState(false)
 
 	const onTermSubmit = async (term) => {
-		const response = await omdb
-			.get("/search", {
-				params: {
-					s: term
-				}
-			})
-			.catch((e) => {
-				console.log(e)
-			})
+		const response = await omdb.get("/search", {
+			params: {
+				s: term
+			}
+		})
+
 		setMovies(response.data.Search)
 	}
 
