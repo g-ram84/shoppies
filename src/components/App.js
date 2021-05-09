@@ -12,11 +12,15 @@ export default function App() {
 	const [entry, setEntry] = useState(false)
 
 	const onTermSubmit = async (term) => {
-		const response = await omdb.get("/search", {
-			params: {
-				s: term
-			}
-		})
+		const response = await omdb
+			.get("/search", {
+				params: {
+					s: term
+				}
+			})
+			.catch((e) => {
+				console.log(e)
+			})
 		setMovies(response.data.Search)
 	}
 
