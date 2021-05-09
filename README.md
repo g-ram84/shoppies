@@ -1,3 +1,3 @@
 ## THE SHOPPIES
 
-A React App submitted by Graeme Chalmers for Shoppify's Front End Developer Internship challenge.
+A React App submitted by Graeme Chalmers for Shopify's Front End Developer Internship challenge.
