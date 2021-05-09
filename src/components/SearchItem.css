@@ -8,10 +8,29 @@
 }
 
 h1 {
-	padding-top: 3rem;
 	font-family: "Anton", sans-serif;
-	color: rgb(6, 16, 155);
+	color: black;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+
+.backdrop {
+	background-size: contain;
+	margin: auto;
+	margin-top: 40px;
+	width: 75vw;
+}
+
+.text {
+	font: bolder 12vw "Alfa Slab One";
+	text-align: center;
+	margin: 0;
+	border: 4px solid;
+}
+
+.multiply {
+	color: white;
+	mix-blend-mode: multiply;
+	background-color: rgba(59, 2, 6, 1);
 }
